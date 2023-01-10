@@ -15,7 +15,7 @@ jobs:
         with:
           ocaml-compiler: 4.14.x
 
-      - run: opam repo add dra27 git+https://github.com/dra27/opam-repository#windows-compilers --all --set-default
-      - run: opam repo remove default --all
+      - run: opam repo add dra27 git+https://github.com/dra27/opam-repository#windows-5.0 --all --set-default
       - run: opam switch create 5.0 --packages=ocaml.5.0.0,ocaml-option-mingw
-      - run: opam exec -- ocamlopt -config
+      - run: opam exec --switch=5.0 -- ocamlopt -config
+      - run: opam install --switch=5.0 utop
